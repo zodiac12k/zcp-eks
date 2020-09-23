@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ./00.set-env.sh
+
 eksctl create nodegroup \
 --region ${REGION} \
 --profile ${CUSTOMER_ACCOUNT_ALIAS} \
@@ -8,11 +10,11 @@ eksctl create nodegroup \
 --node-type m5.xlarge \
 --ssh-access \
 --ssh-public-key ${CLUSTER_NAME}-key \
---nodes 3 \
---nodes-min 3 \
---nodes-max 3 \
+--nodes 1 \
+--nodes-min 1 \
+--nodes-max 1 \
 --node-volume-size 100 \
---node-zones ${ZONES} \
+--node-zones ap-northeast-2a \
 --node-labels "role=logging" \
 --node-private-networking \
 --managed

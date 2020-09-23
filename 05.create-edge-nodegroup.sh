@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ./00.set-env.sh
+
 eksctl create nodegroup \
 --region ${REGION} \
 --profile ${CUSTOMER_ACCOUNT_ALIAS} \
